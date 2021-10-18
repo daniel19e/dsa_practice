@@ -20,3 +20,6 @@ def balance_check(s):
                 return False
     
     return len(stack) == 0
+
+_342 = 'hello'
+print(_342)
