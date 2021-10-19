@@ -1,15 +1,17 @@
-tree_vals=[]
-tree=input()
-# 1st solution, check if the inorder traversal is equal to all the nodes sorted
-def inorder(tree):
-    if tree:
-        inorder(tree.left)
-        tree_vals.append(tree.val)
-        inorder(tree.right)
-
-def sort_check(tree_vals):
-    return tree_vals == sorted(tree_vals)
-
-inorder(tree)
-sort_check(tree_vals)
-
+class Solution:
+    # do an inorder traversal, then check if the list is sorted and doesnt have any repeated elements
+    def isValidBST(self, root) -> bool:
+        ans=[]
+        def inorder(node):
+            if node:
+                inorder(node.left)
+                ans.append(node.val)
+                inorder(node.right)
+        inorder(root)
+        i = 0
+        while i < len(ans)-1:
+            if ans[i] >= ans[i+1]:
+                return False
+            i+= 1
+            
+        return True
