@@ -1,14 +1,17 @@
 
 n = int(input())
-output = 0
-v = []
-for i in range(n):
-    s = int(input())
-    v.append(s)
+v = [int(x) for x in input().split()]
 
+
+lowest = 0
+largest = 0
 v.sort()
-for i in range(len(v)):
-    if v[i] > v[0] and v[i] < v[n-1]:
-        output += 1
+for i in range(n):
+    if v[0] == v[i]:
+        lowest += 1
+    elif v[n-1] == v[i]:
+        largest += 1
 
-print(output)
+print(n-lowest-largest)
+    
+
